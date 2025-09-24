@@ -1,4 +1,5 @@
 Die dice;
+int total;
 void setup(){
   size(1000,1000);
   noLoop();
@@ -16,15 +17,18 @@ void draw(){
     for (int y = 35; y<= height-40; y+=55) {
       dice = new Die(x,y);
       dice.roll();
+      total+=dice.rolledNumber;
       dice.show();
     }
   }
-  
+  fill(44,31,7);
+  text("Total: " + total,475, 10, 525, 50);
 }
 
 
 void mousePressed(){
   redraw();  
+  total = 0;
 }
 
 
